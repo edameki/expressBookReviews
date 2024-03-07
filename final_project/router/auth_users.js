@@ -87,7 +87,7 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
   const book = matchingBooks[0];
   delete book.reviews[req.session.authorization.username.toString()];
 
-  res.status(200).json({message: `The review for the book with the ISBN ${isbn} has been deleted.`});
+  res.status(200).json({message: `The review for the book with the ISBN ${isbn} by the user ${req.session.authorization.username.toString()} has been deleted.`});
 });
 
 module.exports.authenticated = regd_users;
